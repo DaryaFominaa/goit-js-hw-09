@@ -26,7 +26,7 @@ function createPromise(position, delay) {
 
 function makeDelay(delay, step, amount) {
   let stepDelay = delay;
-  for (let i = 1; i < amount; i += 1) {
+  for (let i = 1; i <= amount; i += 1) {
     // const element = array[i];
     createPromise(i, delay)
       .then(({ position, delay }) => {
