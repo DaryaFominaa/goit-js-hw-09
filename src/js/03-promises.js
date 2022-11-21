@@ -5,9 +5,9 @@ form.addEventListener('submit', onSubmit);
 
 function onSubmit(evt) {
   evt.preventDefault();
-  const delay = evt.currentTarget.delay.value;
-  const step = evt.currentTarget.step.value;
-  const amount = evt.currentTarget.amount.value;
+  const delay = Number(evt.currentTarget.delay.value);
+  const step = Number(evt.currentTarget.step.value);
+  const amount = Number(evt.currentTarget.amount.value);
   makeDelay(delay, step, amount);
 }
 
@@ -25,9 +25,9 @@ function createPromise(position, delay) {
 }
 
 function makeDelay(delay, step, amount) {
-  let stepDelay = delay;
+  // let stepDelay = step;
   for (let i = 1; i <= amount; i += 1) {
-    // const element = array[i];
+    delay+= step;
     createPromise(i, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
